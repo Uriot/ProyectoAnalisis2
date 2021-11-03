@@ -12,8 +12,30 @@ router.get("/add", (req, res) =>{
 });
 
 
+//*promesa
+router.post("/add", async (req, res) =>{
+    console.log(req.body);
+    //*Destricturing
+    const{nombre_reserva, telefono, dpi, mail, id_tipo_habitacion, fechaEntrada, fechaSalida} = req.body;
+    let estancia = fechaSalida-fechaEntrada;
+    //*objeto dentro porque se puede enlazar al usuario
+    const nuevaReserva ={
+        nombre_reserva,
+        telefono,
+        dpi,
+        mail,
+        id_tipo_habitacion,
+        fechaEntrada,
+        fechaSalida,
+        estancia,
+        subtotal,
+        id_user
+    };
 
-router.post("/add", (req, res) =>{
+    //*result de promesa
+    await pool.query("INSERT INTO reservacion set ?", [nuevaReserva]);
+
+    console.log(nuevaReserva);
     res.send("revisado");
 });
 
