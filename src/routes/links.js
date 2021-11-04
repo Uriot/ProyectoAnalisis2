@@ -16,7 +16,7 @@ router.get("/add", (req, res) =>{
 //*promesa
 router.post("/add", async (req, res) =>{
     console.log(req.body);
-    //*Destricturing
+    //*Destructuring
     const{nombre, telefono, dpi, mail, id_tipo_habitacion, fechaEntrada, fechaSalida} = req.body;
 
 
@@ -75,6 +75,33 @@ router.get("/inicio", (req, res) =>{
 
 router.get("/experiencia", (req, res) =>{
     res.render("links/experiencia");
+});
+
+router.get("/contacto", (req, res) =>{
+    res.render("links/contacto");
+});
+
+router.post("/contacto", async (req, res) =>{
+    //console.log(req.body)
+    //* Destructurig
+    const{nombre, telefono, mail, mensaje} = req.body;
+
+    const nuevoComentario ={
+        nombre,
+        //casa nombre
+        telefono,
+        mail,
+        mensaje
+        //!id_usuario
+    }
+    await pool.query("INSERT INTO comentario set ?", [nuevoComentario]);
+    //console.log(nuevoComentario);
+});
+
+router.get("/reservas", async (req, res) =>{
+    const reservas = await pool.query("select * from reservacion");
+    console.log(reservas);
+    res.send("reservas aqui");
 });
 
 

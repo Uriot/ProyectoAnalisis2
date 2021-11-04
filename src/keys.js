@@ -5,8 +5,8 @@ module.exports = {
     database:{
         host: "localhost",
         user: "root",
-        password: "elliot", //en casa
-        //password: "",
+        //password: "elliot", //en casa
+        password: "",
         database: "database_hotel"
     }
 };
