@@ -3,8 +3,13 @@ const morgan = require("morgan");
 //motor de plantillas
 const exphbs = require('express-handlebars');
 const path = require('path');
+const flash = require("connect-flash");
+const  session = require("express-session");
+const { Store } = require('express-session');
+const MySQLStore = require("express-mysql-session");
 //const { extname } = require("path");
 
+const {database} = require("./keys");
 //inicializar
 //app es la aplicacion a usar
 const app = express();
@@ -36,13 +41,22 @@ app.set('view engine', '.hbs');
 //Funcion por peticion
 //ejecucion de morgan
 //mostrar tipo por consola
+app.use(session({
+    secret: "elliot",
+    resave: false,
+    saveUninitialized: false,
+    Store: new MySQLStore(database)
+}));
+app.use(flash());
 app.use(morgan("dev"));
 app.use(express.urlencoded({extended: false}));
 app.use(express.json());
 
+
 //Variables Globales
 //* informacion, respuesta, funcion de contiyuar en codigo
 app.use((req, res, next) => {
+    app.locals.exito = req.flash("exito");
     next();
 })
 

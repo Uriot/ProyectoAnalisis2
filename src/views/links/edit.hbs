@@ -1,0 +1,52 @@
+<div class="container p-4">
+    <dir = "row">
+        <div class="col-md-4 mx-auto">
+            <div class="card">
+                <div class="card-body">
+                    <form action="/links/edit/{{reserva.id_reserva}}" method="POST">
+                        <h1>Forma Reservacion</h1>
+                        <div class="form-group">
+                            <h5>Nombre Completo <span style="color: red;">*</span></h5>
+                            <input type="text" value="{{reserva.nombre}}" name="nombre" id= "nombre" placeholder="Nombre Completo:" required="true" class="form-control" autofocus">
+                        </div>
+                        <div class="form-group">
+                            <h5>Telefono<span style="color: red;">*</span></h5>
+                            <input type="text" value="{{reserva.telefono}}" name="telefono" id= "telefono" placeholder="Telefono:" required="true" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <h5>DPI o Pasaporte</h5>
+                            <input type="text" value="{{reserva.dpi}}" name="dpi" id= "dpi" placeholder="dpi:" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <h5>Correo Electronico <span style="color: red;">*</span></h5>
+                            <input type="email" value="{{reserva.mail}}" name="mail" id="mail" placeholder="correo: ejemplo@mail.com" required = "true" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <h5>Tipo de Habitacion <span style="color: red;">*</span></h5>
+                            <select name="id_tipo_habitacion" id="id_tipo_habitacion" required = "true" class="form-control">
+                                <option value="1">Simple</option>
+                                <option value="2">Doble</option>
+                                <option value="3">Triple</option>
+                                <option value="4">Suite</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <h5>Fecha Ingreso <span style="color: red;">*</span></h5>
+                            <input type="date" value="{{reserva.fechaEntrada}}" id="fechaEntrada" required = "true" name="fechaEntrada" placeholder="dd/mm/yyyy" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <h5>Fecha Salida <span style="color: red;">*</span></h5>
+                            <input type="date" name="fechaSalida" id="fechaSalida" placeholder="dd/mm/yyyy" required = "true" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <br>
+                            <button class="btn btn-dark btn-block" style="height: 100%; width: 100%;">
+                                Reservar
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </dir>
+</div>

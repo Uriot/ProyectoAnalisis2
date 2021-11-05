@@ -1,0 +1,57 @@
+<div class="container p-4">
+    <div class="row">
+
+        {{#each reservas}}
+        {{!-- Mostrar Datos --}}
+        <div class="col-md-3">
+            <div class="card text-center">
+                <div class="card-body">
+                    <h3 class="card-title text-uppercase" style="color: blue;">
+                        <b>{{id_reserva}} - {{nombre}}</b>
+                    </h3>
+                    <p class="m-2">
+                        <b style="color: green;">Telefono:</b> {{telefono}}
+                    </p>
+                    <p class="m-2">
+                        <b style="color: green;">Correo:</b> {{mail}}
+                    </p>
+                    <p class="m-2">
+                        <b style="color: green;">DPI::</b> {{dpi}}
+                    </p>
+                    <p class="m-2">
+                        <b style="color: green;">Tipo Habitacion:</b> {{id_tipo_habitacion}}-{{nombre_habitacion}}
+                    </p>
+                    <p class="m-2">
+                        <b style="color: green;">Fecha Entrada:</b> {{fechaEntrada}}
+                    </p>
+                    <p class="m-2">
+                        <b style="color: green;">Fecha Salida:</b> {{fechaSalida}}
+                    </p>
+                    <p class="m-2">
+                        <b style="color: green;">Estancia:</b> {{estancia}} dias
+                    </p>
+                    <p class="m-2">
+                        <b style="color: green;">Subtotal:</b> Q.{{subtotal}}.00
+                    </p>
+                    <p class="m-2">
+                        <b style="color: green;">Tiempo para tu Reserva:</b> <br>
+                        {{timeago fechaEntrada}}
+                    </p class="m-2">
+                    {{!-- <p>
+                        <b style="color: green;">Usuario:</b> {{id_user}}
+                    </p> --}}
+                    <a href="/links/delete/{{id_reserva}}" class="btn btn-danger">Eliminar</a>
+                    <a href="/links/edit/{{id_reserva}}" class="btn btn-secondary">Editar</a>
+                </div>
+            </div>
+        </div>
+        {{else}}
+            <div class="col-md-4 mx-auto">
+                <div class="card card-body text-center">
+                    <p>Aun No Existen Reservas</p>
+                    <a href="/links/add">Reservar</a>
+                </div>
+            </div>
+        {{/each}}
+    </div>
+</div>
