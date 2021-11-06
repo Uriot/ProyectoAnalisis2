@@ -19,7 +19,7 @@ router.get("/singup", (req, res) =>{
 // });
 
 router.post("/singup", passport.authenticate("local.singup",{
-    successRedirect: "/inicio",
+    successRedirect: "/",
     failureRedirect: "/singup",
     failureFlash: true
 })); 
@@ -31,7 +31,7 @@ router.get('/signin', (req, res) => {
 
 router.post("/signin", (req, res, next)=>{
     passport.authenticate('local.signin', {
-        successRedirect: '/inicio',
+        successRedirect: '/',
         failureRedirect: '/signin',
         failureFlash: true
     })(req, res, next);
