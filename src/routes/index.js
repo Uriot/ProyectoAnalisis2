@@ -6,7 +6,7 @@ const router = express.Router();
 
 //definir una ruta
 router.get("/", (req, res) =>{
-    res.send("Hello Word");
+    res.render("links/inicio");
 })
 
 

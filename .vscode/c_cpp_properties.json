@@ -7,7 +7,7 @@
       ],
 <<<<<<< Updated upstream
      // "compilerPath": "gcc",
-=======
+//=======
       //"compilerPath": "gcc",
 >>>>>>> Stashed changes
       "cStandard": "${default}",

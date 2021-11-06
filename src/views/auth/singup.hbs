@@ -1,0 +1,49 @@
+<div class="container p-4">
+    <div class="row">
+        <div class="col-md-4 mx-auto">
+            <div class="card text-center">
+                <div class="card-header">
+                    <h3>Crea Cuenta</h3>
+                </div>
+                <div class="card-body">
+                    <form action="/singup" method="post">
+                        <div class="form-group">
+                            <label for="username">Username:<span style="color: red;" >*</span></label>
+                            <input type="text" name="username" id="username" placeholder="username:" class="form-control" autofocus required="true">
+                        </div>
+                        <div class="form-group">
+                            <label for="Password:">PASSWORD:<span style="color: red;" >*</span></label>
+                            <input type="password" name="PASSWORD" id="password" placeholder="contraseña" class="form-control" required="true>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Correo electronico:<span style="color: red;" >*</span></label>
+                            <input type="email" name="email" id="email" placeholder="Correo electronico" class="form-control" required="true>
+                        </div>
+                        <div class="form-group">
+                            <label for="nombre_completo_user">Nombre Completo:<span style="color: red;" >*</span></label>
+                            <input type="text" name="nombre_completo_user" id="nombre_completo_user" placeholder="Nombre Completo" class="form-control" required="true>
+                        </div>
+                        <div class="form-group">
+                            <label for="dpi_user">DPI o Pasaporte:</label>
+                            <input type="text" name="dpi_user" id="dpi_user" placeholder="DPI o Pasaporte" class="form-control" >
+                        </div>
+                        <div class="form-group">
+                            <label for="nit_user">NIT:</label>
+                            <input type="text" name="nit_user" id="nit_user" placeholder="NIT" class="form-control">
+                            <input id="id_tipo_user" name="id_tipo_user" type="hidden" value="1">
+                        </div>
+                        <div class="form-group">
+                            <label for="telefono_user">Telefono:<span style="color: red;" >*</span></label>
+                            <input type="text" name="telefono_user" id="telefono_user" placeholder="Telefono" class="form-control" required = "true">
+                        </div>
+                        <div class="form-group">
+                            <button class="btn btn-success btn-block">
+                                Crear
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

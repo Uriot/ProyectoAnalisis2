@@ -7,12 +7,15 @@ const flash = require("connect-flash");
 const  session = require("express-session");
 const { Store } = require('express-session');
 const MySQLStore = require("express-mysql-session");
+const passport = require("passport");
 //const { extname } = require("path");
 
 const {database} = require("./keys");
+
 //inicializar
 //app es la aplicacion a usar
 const app = express();
+require("./lib/passport");
 
 //configuraciones
 //definir puerto
@@ -51,12 +54,16 @@ app.use(flash());
 app.use(morgan("dev"));
 app.use(express.urlencoded({extended: false}));
 app.use(express.json());
+app.use(passport.initialize());
+app.use(passport.session());
 
 
 //Variables Globales
 //* informacion, respuesta, funcion de contiyuar en codigo
 app.use((req, res, next) => {
     app.locals.exito = req.flash("exito");
+    app.locals.message = req.flash("message");
+
     next();
 })
 

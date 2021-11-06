@@ -99,6 +99,7 @@ router.post("/contacto", async (req, res) =>{
     }
     await pool.query("INSERT INTO comentario set ?", [nuevoComentario]);
     console.log(nuevoComentario);
+    req.flash("exito", "El comentario ha sido enviado exitosamente pronto alguien se comunicara con usted");
     res.redirect("/links/inicio");
 });
 
@@ -117,6 +118,7 @@ router.get("/delete/:id_reserva", async (req, res) =>{
     const{id_reserva} = req.params;
     //res.send("Eliminado");
     await pool.query("delete from reservacion where id_reserva = ?", [id_reserva]);
+    req.flash("exito", "Se ha eliminado exitosamente la reserva");
     res.redirect("/links/reservas");
 })
 
@@ -174,7 +176,8 @@ router.post("/edit/:id_reserva", async(req, res) =>{
     console.log(nuevaReserva);
     //res.send("actualizado");
     await pool.query("update reservacion set ? where id_reserva = ?", [nuevaReserva, id_reserva]);
-    //req.flash("exito", "Reserva editada exitosamente");
+
+    req.flash("exito", "Reserva editada exitosamente");
     res.redirect("/links/reservas");
 })
 
